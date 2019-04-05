@@ -1,0 +1,19 @@
+<h1>Create a band!</h1>
+
+<% if !flash.empty? %>
+    <% flash[:errors].each do |error| %>
+    <%= error %>
+    <% end %>
+<% end %>
+
+
+
+<form action="<%= bands_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <label>What's your new band: <label><br><br>
+    <input type="text" name="band[name]">
+    <br><br><br>
+    <button type="submit">There's no going back</button>
+
+</form>

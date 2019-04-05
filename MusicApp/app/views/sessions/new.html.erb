@@ -1,0 +1,27 @@
+<h1>Welcome back, log in!</h1>
+
+<form action="<%= new_user_url %>">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <button type="submit">Sign Up</button>
+</form>
+<br><br><br>
+
+<% if !flash.empty? %> Oh No!
+    <% flash[:errors].each do |error| %>
+    <%= error %>
+    <% end %>
+<% end %>
+
+<br><br><br>
+<form action="<%= session_url %>" method="POST">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>Username: </label>
+    <input type="text" name="user[user_name]" value="">
+
+  <label>Password: </label>
+    <input type="password" name="user[password]" value="">
+
+  <input type="submit" value="Login">
+
+</form>
